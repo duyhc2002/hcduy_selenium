@@ -15,9 +15,10 @@ def test_login(driver):
 
     driver.find_element(*password_field).send_keys('admin123')
     driver.find_element(*click_btn).click()
+    sleep(4.5)
     driver.find_element(*recruitment_btn).click()
 
-    sleep(7)
+    sleep(5.75)
     #upgrade_btn = WebDriverWait(driver, 10).until(lambda d: d.find_element(*upgrade_btn))
 
 
