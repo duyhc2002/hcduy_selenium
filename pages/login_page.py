@@ -18,5 +18,5 @@ class LoginPage:
         self.driver.find_element(*self.password_field).send_keys('admin123')
         self.driver.find_element(*self.click_btn).click()
 
-    def is_upgrade_button_displayed(self):
+    def is_upgraded_button_displayed(self):
         return WebDriverWait(self.driver, 10).until(lambda d: d.find_element(*self.upgrade_btn)).is_displayed()
