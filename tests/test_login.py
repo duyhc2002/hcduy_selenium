@@ -9,4 +9,4 @@ def test_login(driver):
     login_page = LoginPage(driver)
     login_page.login("Admin", "admin123")
     sleep(3)
-    login_page.is_upgrade_button_displayed()
+    login_page.is_upgraded_button_displayed()
