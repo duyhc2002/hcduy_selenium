@@ -3,11 +3,12 @@ from selenium import webdriver
 from time import sleep
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
+from pages.base_page import BasePage
 
-
-class LoginPage:
+class LoginPage(BasePage):
     def __init__(self, driver):
         self.driver = driver
+        super().__init__(driver)
 
         self.username_field = (By.NAME, 'username')
         self.password_field = (By.NAME, 'password')
