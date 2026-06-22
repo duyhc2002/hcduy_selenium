@@ -16,7 +16,7 @@ class RecruitmentPage(BasePage):
         self.add_btn = (By.XPATH, '//button[@class="oxd-button oxd-button--medium oxd-button--secondary"]')
         self.vacancy_name_field = (By.XPATH, "//label[text()='Vacancy Name']/ancestor::div[contains(@class,'oxd-input-group')]//input")
         self.job_title_dropdown = (By.XPATH, "//div[contains(@class,'oxd-select-text')]")
-        self.job_title_option = (By.XPATH,"//span[normalize-space()='Automaton Tester']")
+        self.job_title_option = (By.XPATH,"//span[normalize-space()='Automation Tester']")
         self.description_field = (By.XPATH, "//textarea[@placeholder='Type description here']")
         self.hiring_manager_field = (By.XPATH, "//input[@placeholder='Type for hints...']")
         self.hiring_manager_option = (By.XPATH, "//div[@role='option']//span[contains(text(),'Joy')]")
