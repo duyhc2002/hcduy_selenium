@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -42,11 +42,11 @@ jobs:
           chromedriver --version
 
       - name: Run tests
-        run: pytest -v tests/test_login.py
+        run: pytest -v tests/test_recruitment.py
 
       - name: Upload Allure results
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: allure-results
           path: allure-results
