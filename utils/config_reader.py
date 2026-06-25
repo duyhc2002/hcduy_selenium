@@ -24,8 +24,13 @@ class ConfigReader:
     def get_password():
         return ConfigReader.load_config()['credentials']['password']
     
+    @staticmethod
     def get_timeout(timeout_type='implicit'):
         return ConfigReader.load_config()['timeouts'][timeout_type]
+    
+    @staticmethod
+    def get_isheadless():
+        return ConfigReader.load_config()['is_headless']
     
     @staticmethod
     def get_api_base_url():
