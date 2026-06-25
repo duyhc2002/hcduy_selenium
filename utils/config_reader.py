@@ -26,3 +26,7 @@ class ConfigReader:
     
     def get_timeout(timeout_type='implicit'):
         return ConfigReader.load_config()['timeouts'][timeout_type]
+    
+    @staticmethod
+    def get_api_base_url():
+        return ConfigReader.load_config()['api_base_url']
