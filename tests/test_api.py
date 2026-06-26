@@ -1,3 +1,5 @@
+from urllib import response
+
 import pytest
 from utils.api_helper import APIHelper
 from utils.config_reader import ConfigReader
@@ -18,3 +20,44 @@ class TestDummyJSONProductsAPI:
         product = response.json()
         assert product["id"] == 1
         assert product["title"] == "Essence Mascara Lash Princess"
+
+    @pytest.mark.post
+    def test_create_product(self):
+        payload = {
+            "title": "Automation Test Product",
+            "price": 99.99,
+            "category": "test",
+        }
+
+        response = self.api_helper.post("/products/add", json_data=payload)
+
+        assert response.status_code in (200, 201)
+        created_product = response.json()
+        print("print full reponse", response.json())
+        assert created_product["id"] > 0
+        assert created_product["title"] == payload["title"]
+        assert created_product["price"] == payload["price"]
+
+    def test_update_product(self):
+        payload = {
+            "title": "Updated Automation Test Product",
+            "price": 149.99,
+        }
+
+        response = self.api_helper.put("/products/1", json_data=payload)
+
+        assert response.status_code == 200
+        updated_product = response.json()
+
+        assert updated_product["id"] == 1
+        assert updated_product["title"] == payload["title"]
+        assert updated_product["price"] == payload["price"]
+
+    def test_delete_product(self):
+        response = self.api_helper.delete("/products/1")
+
+        assert response.status_code == 200
+        deleted_product = response.json()
+        assert deleted_product["id"] == 1
+        assert deleted_product["isDeleted"] is True
+        assert deleted_product["deletedOn"]
